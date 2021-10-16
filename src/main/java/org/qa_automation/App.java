@@ -1,7 +1,7 @@
 package org.qa_automation;
 
 public class App {
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
 
 
         Engine engine = new Engine();
@@ -62,19 +62,25 @@ public class App {
 
 //        RadioControlledMotorcycle motorcycle = new RadioControlledMotorcycle(new Engine());
         Race newRace = new Race();
-        newRace.insertCompetitor(0,dacia);
-        newRace.insertCompetitor(1,lada);
+        newRace.insertCompetitor2(dacia);
+        newRace.insertCompetitor2(lada);
 
-        for(int i = 0; i<newRace.getCompetitors().length; i++) {
-            if (newRace.getCompetitors()[i] != null) {
-                System.out.println(newRace.getCompetitors()[i].getName());
-            }
+//        for(int i = 0; i<newRace.getCompetitors().length; i++) {
+//            if (newRace.getCompetitors()[i] != null) {
+//                System.out.println(newRace.getCompetitors()[i].getName());
+//            }
+//        }
+//
+        for (int i = 0; i < newRace.getCompetitorsList().size(); i++) {
+            System.out.println(newRace.getCompetitorsList().get(i).getName());
         }
 
-        for(Vehicle vehicle : newRace.getCompetitors()){
-            if (vehicle != null) {
-                System.out.println(vehicle.getName());
-            }
+        for (Vehicle vehicle : newRace.getCompetitorsList()) {
+            System.out.println(vehicle.getName());
         }
+
+        newRace.getCompetitorsList().remove(dacia);
+        System.out.println(newRace.getCompetitorsList().size());
     }
+
 }
