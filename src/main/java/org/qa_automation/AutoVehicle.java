@@ -8,7 +8,7 @@ public class AutoVehicle extends Vehicle {
 
     public AutoVehicle(Engine engine){
         this.engine = engine;
-        System.out.println("AutoVehicle constructor");
+//        System.out.println("AutoVehicle constructor");
     }
 
     public AutoVehicle(Engine engine, String name){

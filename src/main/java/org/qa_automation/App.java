@@ -62,8 +62,8 @@ public class App {
 
 //        RadioControlledMotorcycle motorcycle = new RadioControlledMotorcycle(new Engine());
         Race newRace = new Race();
-        newRace.insertCompetitor2(dacia);
-        newRace.insertCompetitor2(lada);
+//        newRace.insertCompetitor2(dacia);
+//        newRace.insertCompetitor2(lada);
 
 //        for(int i = 0; i<newRace.getCompetitors().length; i++) {
 //            if (newRace.getCompetitors()[i] != null) {
@@ -71,16 +71,19 @@ public class App {
 //            }
 //        }
 //
-        for (int i = 0; i < newRace.getCompetitorsList().size(); i++) {
-            System.out.println(newRace.getCompetitorsList().get(i).getName());
-        }
+//        for (int i = 0; i < newRace.getCompetitorsList().size(); i++) {
+//            System.out.println(newRace.getCompetitorsList().get(i).getName());
+//        }
+//
+//        for (Vehicle vehicle : newRace.getCompetitorsList()) {
+//            System.out.println(vehicle.getName());
+//        }
+//
+//        newRace.getCompetitorsList().remove(dacia);
+//        System.out.println(newRace.getCompetitorsList().size());
 
-        for (Vehicle vehicle : newRace.getCompetitorsList()) {
-            System.out.println(vehicle.getName());
-        }
-
-        newRace.getCompetitorsList().remove(dacia);
-        System.out.println(newRace.getCompetitorsList().size());
+        newRace.readVehicleName();
+        newRace.accelerationSpeed();
     }
 
 }
