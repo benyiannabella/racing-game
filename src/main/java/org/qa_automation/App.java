@@ -26,42 +26,55 @@ public class App {
         Engine ladaEngine = new Engine();
         lada.setEngine(ladaEngine);
 
-        Race race = new Race(dacia, lada);
+//        Race race = new Race(dacia, lada, new Vehicle());
 //        race.setFirstCar(dacia);
 //        race.setSecondCar(lada);
 
-        double test = dacia.accelerate(8.1);
-        System.out.println(test);
+//        double test = dacia.accelerate(8.1);
+//        System.out.println(test);
 
-        System.out.println(dacia.getName());
-        System.out.println(lada.getName());
-        System.out.println(RadioControlledCar.CONTROL_TYPE);
-        System.out.println(dacia.CONTROL_TYPE);
-        System.out.println(lada.CONTROL_TYPE);
+//        System.out.println(dacia.getName());
+//        System.out.println(lada.getName());
+//        System.out.println(RadioControlledCar.CONTROL_TYPE);
+//        System.out.println(dacia.CONTROL_TYPE);
+//        System.out.println(lada.CONTROL_TYPE);
 
-        System.out.println("______________________________________");
+//        System.out.println("______________________________________");
 
 //        dacia.CONTROL_TYPE = "Improved controller";
 
-        System.out.println(RadioControlledCar.CONTROL_TYPE);
-        System.out.println(dacia.CONTROL_TYPE);
-        System.out.println(lada.CONTROL_TYPE);
+//        System.out.println(RadioControlledCar.CONTROL_TYPE);
+//        System.out.println(dacia.CONTROL_TYPE);
+//        System.out.println(lada.CONTROL_TYPE);
 
 //        constructors  overload
-        new AutoVehicle();
-        new AutoVehicle(new Engine());
-        new AutoVehicle(new Engine(), "name");
+//        new AutoVehicle();
+//        new AutoVehicle(new Engine());
+//        new AutoVehicle(new Engine(), "name");
 
-        System.out.println(dacia.toString());
+//        System.out.println(dacia.toString());
 
-        Vehicle car = new RadioControlledCar(new Engine());
+//        Vehicle car = new RadioControlledCar(new Engine());
 //        car being a vehicle cannot call RadioControlledCar methods
 //        car.checkRadioResponse();
 //        dacia having reference type RadioControlledCar can call method
-        dacia.checkRadioResponse();
+//        dacia.checkRadioResponse();
 
-        RadioControlledMotorcycle motorcycle = new RadioControlledMotorcycle(new Engine());
-        Race newRace = new Race(lada, motorcycle);
+//        RadioControlledMotorcycle motorcycle = new RadioControlledMotorcycle(new Engine());
+        Race newRace = new Race();
+        newRace.insertCompetitor(0,dacia);
+        newRace.insertCompetitor(1,lada);
 
+        for(int i = 0; i<newRace.getCompetitors().length; i++) {
+            if (newRace.getCompetitors()[i] != null) {
+                System.out.println(newRace.getCompetitors()[i].getName());
+            }
+        }
+
+        for(Vehicle vehicle : newRace.getCompetitors()){
+            if (vehicle != null) {
+                System.out.println(vehicle.getName());
+            }
+        }
     }
 }

@@ -2,26 +2,18 @@ package org.qa_automation;
 
 public class Race {
 
-    private Vehicle firstCompetitor;
-    private Vehicle secondCompetitor;
+    private Vehicle[] competitors = new Vehicle[10];
 
-    public Race(Vehicle firstCompetitor, Vehicle secondCompetitor){
-        this.firstCompetitor = firstCompetitor;
-        this.secondCompetitor = secondCompetitor;
+    public Race (){
     }
-    public Vehicle getFirstCompetitor() {
-        return firstCompetitor;
+    public Race(Vehicle... competitors){
+        this.competitors = competitors;
     }
-
-    public void setFirstCompetitor(Vehicle firstCompetitor) {
-        this.firstCompetitor = firstCompetitor;
+    public Vehicle[] getCompetitors(){
+        return competitors;
     }
 
-    public Vehicle getSecondCompetitor() {
-        return secondCompetitor;
-    }
-
-    public void setSecondCompetitor(Vehicle secondCompetitor) {
-        this.secondCompetitor = secondCompetitor;
+    public void insertCompetitor(int index, Vehicle vehicle){
+        competitors[index]=vehicle;
     }
 }
