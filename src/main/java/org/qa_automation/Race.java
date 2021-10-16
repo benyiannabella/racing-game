@@ -2,22 +2,26 @@ package org.qa_automation;
 
 public class Race {
 
-    private RadioControlledCar firstCar;
-    private RadioControlledCar secondCar;
+    private Vehicle firstCompetitor;
+    private Vehicle secondCompetitor;
 
-    public RadioControlledCar getFirstCar() {
-        return firstCar;
+    public Race(Vehicle firstCompetitor, Vehicle secondCompetitor){
+        this.firstCompetitor = firstCompetitor;
+        this.secondCompetitor = secondCompetitor;
+    }
+    public Vehicle getFirstCompetitor() {
+        return firstCompetitor;
     }
 
-    public void setFirstCar(RadioControlledCar firstCar) {
-        this.firstCar = firstCar;
+    public void setFirstCompetitor(Vehicle firstCompetitor) {
+        this.firstCompetitor = firstCompetitor;
     }
 
-    public RadioControlledCar getSecondCar() {
-        return secondCar;
+    public Vehicle getSecondCompetitor() {
+        return secondCompetitor;
     }
 
-    public void setSecondCar(RadioControlledCar secondCar) {
-        this.secondCar = secondCar;
+    public void setSecondCompetitor(Vehicle secondCompetitor) {
+        this.secondCompetitor = secondCompetitor;
     }
 }

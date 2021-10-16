@@ -6,6 +6,11 @@ public class RadioControlledCar extends AutoVehicle {
 
     public RadioControlledCar(Engine engine) {
         super(engine);
+        System.out.println("RadioControlledCar constructor");
+    }
+
+    public void checkRadioResponse(){
+
     }
 
     public int getDoorCount() {

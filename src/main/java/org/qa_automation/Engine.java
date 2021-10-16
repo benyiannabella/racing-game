@@ -2,7 +2,7 @@ package org.qa_automation;
 
 public class Engine {
 
-        private String manufacturer;
+    private String manufacturer;
 
     public String getManufacturer() {
         return manufacturer;
@@ -11,4 +11,6 @@ public class Engine {
     public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
+
+
 }

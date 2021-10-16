@@ -2,13 +2,16 @@ package org.qa_automation;
 
 public class Vehicle {
 
+    public static final String CONTROL_TYPE = "Radio control";
     private String name;
     private String color;
     private int wheelCount;
+    private double currentSpeed;
 
+    //display the made distance per 1 minute
     public double accelerate(double speed) {
-        System.out.println(speed);
-        return 10.5;
+        currentSpeed += speed;
+        return currentSpeed * 60;
     }
 
     public String getName() {
@@ -33,5 +36,18 @@ public class Vehicle {
 
     public void setWheelCount(int wheelCount){
         this.wheelCount=wheelCount;
+    }
+
+    public double getCurrentSpeed() {
+        return currentSpeed;
+    }
+
+    public void setCurrentSpeed(double currentSpeed) {
+        this.currentSpeed = currentSpeed;
+    }
+
+    @Override
+    public String toString(){
+        return "name: " + name + ", color: " +  color + ", wheel number:  " + wheelCount;
     }
 }

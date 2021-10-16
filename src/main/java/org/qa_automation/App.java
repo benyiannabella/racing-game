@@ -3,7 +3,7 @@ package org.qa_automation;
 public class App {
     public static void main( String[] args ) {
 
-        Race race = new Race();
+
         Engine engine = new Engine();
         RadioControlledCar dacia = new RadioControlledCar(engine);
         dacia.setName("dacia");
@@ -26,10 +26,42 @@ public class App {
         Engine ladaEngine = new Engine();
         lada.setEngine(ladaEngine);
 
-        race.setFirstCar(dacia);
-        race.setSecondCar(lada);
+        Race race = new Race(dacia, lada);
+//        race.setFirstCar(dacia);
+//        race.setSecondCar(lada);
 
         double test = dacia.accelerate(8.1);
         System.out.println(test);
+
+        System.out.println(dacia.getName());
+        System.out.println(lada.getName());
+        System.out.println(RadioControlledCar.CONTROL_TYPE);
+        System.out.println(dacia.CONTROL_TYPE);
+        System.out.println(lada.CONTROL_TYPE);
+
+        System.out.println("______________________________________");
+
+//        dacia.CONTROL_TYPE = "Improved controller";
+
+        System.out.println(RadioControlledCar.CONTROL_TYPE);
+        System.out.println(dacia.CONTROL_TYPE);
+        System.out.println(lada.CONTROL_TYPE);
+
+//        constructors  overload
+        new AutoVehicle();
+        new AutoVehicle(new Engine());
+        new AutoVehicle(new Engine(), "name");
+
+        System.out.println(dacia.toString());
+
+        Vehicle car = new RadioControlledCar(new Engine());
+//        car being a vehicle cannot call RadioControlledCar methods
+//        car.checkRadioResponse();
+//        dacia having reference type RadioControlledCar can call method
+        dacia.checkRadioResponse();
+
+        RadioControlledMotorcycle motorcycle = new RadioControlledMotorcycle(new Engine());
+        Race newRace = new Race(lada, motorcycle);
+
     }
 }
