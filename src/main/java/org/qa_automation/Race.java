@@ -4,11 +4,31 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Race {
 
 //    private Vehicle[] competitors = new Vehicle[10];
     private List<Vehicle> competitorsList = new ArrayList<>();
+    private double trackLength;
+    private double trackFuelLevel;
+    private int competitorCount = 2;
+
+    public double getTrackFuelLevel() {
+        return trackFuelLevel;
+    }
+
+    public void setTrackFuelLevel(double trackFuelLevel) {
+        this.trackFuelLevel = trackFuelLevel;
+    }
+
+    public double getTrackLength() {
+        return trackLength;
+    }
+
+    public void setTrackLength(double trackLength) {
+        this.trackLength = trackLength;
+    }
 
     public Race (){
     }
@@ -51,5 +71,49 @@ public class Race {
         return speed;
     }
 
+    public void addCompetitor(){
+        String name = readVehicleName();
+        AutoVehicle autoVehicle = new AutoVehicle();
+        autoVehicle.setName(name);
+
+        double mileage= ThreadLocalRandom.current().nextDouble(8,11);
+        autoVehicle.setMileage(mileage);
+        System.out.println("Mileage for vehicle wih name: " + autoVehicle.getName() + ", " + mileage + "l/100" );
+        competitorsList.add(autoVehicle);
+    }
+
+    public  void addAllCompetitors(){
+        for(int i = 0; i < competitorCount; i++){
+            addCompetitor();
+        }
+    }
+
+
+    public Vehicle returnWinner() {
+        int noFuelCompetitors = 0;
+        boolean noWinnerYet = true;
+
+        while (noFuelCompetitors < competitorCount) {
+            for (Vehicle vehicle : competitorsList) {
+                double accelerationSpeed = accelerationSpeed();
+                double travelDistance = vehicle.accelerate(accelerationSpeed);
+
+                if (vehicle.getFuelLevel() <= 0) {
+                    noFuelCompetitors++;
+                }
+
+                if (travelDistance >= trackLength) {
+                    System.out.println("The winner of the race is : " + vehicle.getName());
+                    return vehicle;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void start(){
+        addAllCompetitors();
+        returnWinner();
+    }
 
 }

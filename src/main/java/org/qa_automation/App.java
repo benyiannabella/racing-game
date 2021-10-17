@@ -4,27 +4,27 @@ public class App {
     public static void main(String[] args) {
 
 
-        Engine engine = new Engine();
-        RadioControlledCar dacia = new RadioControlledCar(engine);
-        dacia.setName("dacia");
-        dacia.setColor("red");
-        dacia.setDoorCount(4);
-        dacia.setWheelCount(4);
-        dacia.setMileage(8.5);
-
-        Engine engine1 = new Engine();
-        engine.setManufacturer("Renault");
-        dacia.setEngine(engine1);
-
-        RadioControlledCar lada = new RadioControlledCar(engine);
-        lada.setName("lada");
-        lada.setColor("blue");
-        lada.setDoorCount(2);
-        lada.setWheelCount(4);
-        lada.setMileage(8);
-
-        Engine ladaEngine = new Engine();
-        lada.setEngine(ladaEngine);
+//        Engine engine = new Engine();
+//        RadioControlledCar dacia = new RadioControlledCar(engine);
+//        dacia.setName("dacia");
+//        dacia.setColor("red");
+//        dacia.setDoorCount(4);
+//        dacia.setWheelCount(4);
+//        dacia.setMileage(8.5);
+//
+//        Engine engine1 = new Engine();
+//        engine.setManufacturer("Renault");
+//        dacia.setEngine(engine1);
+//
+//        RadioControlledCar lada = new RadioControlledCar(engine);
+//        lada.setName("lada");
+//        lada.setColor("blue");
+//        lada.setDoorCount(2);
+//        lada.setWheelCount(4);
+//        lada.setMileage(8);
+//
+//        Engine ladaEngine = new Engine();
+//        lada.setEngine(ladaEngine);
 
 //        Race race = new Race(dacia, lada, new Vehicle());
 //        race.setFirstCar(dacia);
@@ -82,8 +82,12 @@ public class App {
 //        newRace.getCompetitorsList().remove(dacia);
 //        System.out.println(newRace.getCompetitorsList().size());
 
-        newRace.readVehicleName();
-        newRace.accelerationSpeed();
+//        newRace.readVehicleName();
+//        newRace.accelerationSpeed();
+
+        newRace.setTrackLength(200);
+        newRace.setTrackFuelLevel(50);
+        newRace.start();
     }
 
 }

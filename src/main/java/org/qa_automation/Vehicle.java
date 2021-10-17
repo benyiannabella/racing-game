@@ -7,12 +7,9 @@ public class Vehicle {
     private String color;
     private int wheelCount;
     private double currentSpeed;
-
-    //display the made distance per 1 minute
-    public double accelerate(double speed) {
-        currentSpeed += speed;
-        return currentSpeed * 60;
-    }
+    private Engine engine;
+    private double mileage;
+    private double fuelLevel;
 
     public String getName() {
         return name;
@@ -49,5 +46,48 @@ public class Vehicle {
     @Override
     public String toString(){
         return "name: " + name + ", color: " +  color + ", wheel number:  " + wheelCount;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public Engine getEngine(String name){
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(double mileage) {
+        this.mileage = mileage;
+    }
+
+
+    public double getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public void setFuelLevel(double fuelLevel) {
+        this.fuelLevel = fuelLevel;
+    }
+
+    public double accelerate(double speed) {
+        if(fuelLevel > 0) {
+            setCurrentSpeed(getCurrentSpeed() + speed);
+            double travelledDistance = getCurrentSpeed() * 60;
+            double spentFuel = travelledDistance * mileage / 100;
+            fuelLevel -= spentFuel;
+            return travelledDistance;
+        } else {
+            System.out.println("Vehicle " + name + " is out of fuel");
+            return 0;
+        }
+
     }
 }
